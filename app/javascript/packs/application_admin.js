@@ -6,6 +6,7 @@ require("jquery")
 import "bootstrap"
 import "../stylesheets/application"
 import "cocoon";
+import "chartkick/chart.js"
 
 Rails.start()
 require('admin/scripts')

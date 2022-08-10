@@ -1,6 +1,6 @@
 <tr>
   <td><%= category.name %></td>
-  <td><%= find_parent(category) %></td>
+  <td><%= find_parent category %></td>
   <td>
   <%= link_to icon("fa regular", "eye"), admin_category_path(category) %>
   <%= link_to icon("fa regular", "pen-to-square"), edit_admin_category_path(category), class: "td_custom" %>

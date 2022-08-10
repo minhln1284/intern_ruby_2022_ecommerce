@@ -35,21 +35,23 @@
             <% @order_details.includes([:product]).each do |order_detail| %>
               <tr>
                 <td><%= order_detail.quantity %></td>
-                <td><%= order_detail.product.price %></td>
+                <td><%= order_detail.price %></td>
                 <td><%= order_detail.name %></td>
               </tr>
             <% end %>
           </tbody>
-        </table>
+      </table>
 
         <div class="field">
-          <%= form.label t("admin.order.total") %>
-          <%= @order.amount %>
+          <h4>
+            <%= form.label t("admin.order.total") %>
+            <%= @order.amount %>
+          </h4>
         </div>
 
         <% if can_change?(@order.status) %>
           <div class="actions">
-            <div style = "submit_padding"><%= form.submit t("submit"), class: "btn btn-success" %></div>
+            <div style = "submit_padding"><%= form.submit t("submit"), class: "btn btn-success", data: { confirm: t("admin.category.you_sure") } %></div>
           </div>
         <% end %>
         <br>
@@ -59,44 +61,4 @@
       </div>
     </div>
   </div>
-
-  <div class="control-group">
-    <%= form.label t("admin.order.update_status"), class: "control-label" %>
-    <%= form.select(:status, Order.statuses.keys) %>
-  </div>
-
-  <table class = "table">
-    <thead>
-      <tr>
-        <th><%= t "admin.order.quantity" %></th>
-        <th><%= t "admin.order.price" %></th>
-        <th><%= t "admin.order.name" %></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @order_details.includes([:product]).each do |order_detail| %>
-        <tr>
-          <td><%= order_detail.quantity %></td>
-          <td><%= order_detail.price %></td>
-          <td><%= order_detail.name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div class="field">
-    <%= form.label t("admin.order.total") %>
-    <%= @order.amount %>
-  </div>
-
-  <div class="actions">
-    <div style = "submit_padding">
-      <%= form.submit %>
-    </div>
-  </div>
-
-  <%= link_to t("admin.category.back_index"), admin_orders_path %>
-  <%= link_to t("admin.category.back_user"), admin_user_path(@order.user) %>
-  <% end %>
 </div>

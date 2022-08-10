@@ -5,11 +5,13 @@ ruby "2.7.1"
 
 gem "bcrypt"
 gem "bootsnap", ">= 1.4.4", require: false
+gem "chartkick"
 gem "cocoon"
 gem "config"
 gem "faker"
 gem "figaro"
 gem "font-awesome-sass", "~> 6.1.2"
+gem "groupdate"
 gem "htmlbeautifier"
 gem "image_processing", "~> 1.2"
 gem "jbuilder", "~> 2.7"

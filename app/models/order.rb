@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
-  acts_as_paranoid
+  acts_as_paranoid without_default_scope: true
   enum status: {Pending: 0, Shipping: 1, Delivered: 2, Canceled: 3,
-                Rejected: 4}
+                Rejected: 4}, _default: 0
 
   ORDER_ATTRS = %w(quantity price product_id amount).freeze
 
