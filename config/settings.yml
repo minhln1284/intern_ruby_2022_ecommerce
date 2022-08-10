@@ -3,3 +3,7 @@ review:
   rating_max: 5
 message:
   message_max: 100
+category:
+  item: 15
+order:
+  item: 15

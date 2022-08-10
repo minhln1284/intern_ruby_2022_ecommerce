@@ -1,4 +1,12 @@
 vi:
+  flashes:
+    alert_not_found: "Xin lỗi không tìm thấy"
+    delete_success: "Xóa thành công"
+    delete_failed: "Đã xảy ra lỗi khi xóa"
+    update_success: "Cập nhật thành công"
+    update_failed: "Cập nhật thất bại"
+    create_success: "Tạo mới thành công"
+    create_failed: "Không tạo mới được"
   static_pages:
     home: "Trang chủ"
     sign_in: "Đăng nhập"
@@ -34,3 +42,18 @@ vi:
       product: "Sản phẩm"
       order: "Đơn hàng"
       account: "Tài khoản"
+    category:
+      you_sure: "Bạn chắc chứ?"
+      name: "Tên: "
+      parent: "Danh mục cha: "
+      new_category: "Tạo danh mục mới"
+      error: "Khiến không thể tạo được danh mục mới"
+      categories: "Danh mục sản phẩm"
+      editing: "Chỉnh sửa danh mục sản phẩm"
+      show: "Chi tiết"
+      edit: "Chỉnh sửa"
+      destroy: "Xóa"
+      back: "Quay lại"
+      none: "Không có"
+      details: "Chi tiết"
+      content: "Nội dung"

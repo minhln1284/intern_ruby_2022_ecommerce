@@ -5,9 +5,11 @@ ruby "2.7.1"
 
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap", "~> 5.2"
+gem "config"
 gem "font-awesome-sass", "~> 6.1.2"
 gem "jbuilder", "~> 2.7"
 gem "mysql2"
+gem "pagy"
 gem "puma", "~> 5.0"
 gem "rails", "~> 6.1.6", ">= 6.1.6.1"
 gem "rails-i18n"

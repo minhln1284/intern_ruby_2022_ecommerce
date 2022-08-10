@@ -19,7 +19,9 @@ require('js/scroll')
 require('js/responsive-tab')
 require('js/run-slider')
 require('js/responsiveslides.min')
+import "../stylesheets/application"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+global.toastr = require("toastr")
