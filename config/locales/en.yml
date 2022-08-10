@@ -297,3 +297,12 @@ en:
       new_pass_title: "Forgot password"
       email: "email"
       submit: "Submit"
+  monthly_mailer:
+    month_summary: "This month summary"
+    customer_summary: "Customer summary"
+    customer: "Customers"
+    orders: "Orders"
+    product: "Product"
+    buy_count: "Number of buys"
+    hi: "Hi"
+    subject: "This month summary"

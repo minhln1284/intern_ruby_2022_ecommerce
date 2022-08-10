@@ -305,3 +305,12 @@ vi:
       new_pass_title: "Quên mật khẩu"
       email: "Nhập email"
       submit: "Tạo mật khẩu mới"
+  monthly_mailer:
+    month_summary: "Tổng kết cuối tháng"
+    customer_summary: "Tổng kết khách hàng"
+    customer: "Khách hàng"
+    orders: "Số đơn"
+    product: "Sản phẩm"
+    buy_count: "Lượt mua"
+    hi: "Xin chào"
+    subject: "Tổng kết cuối tháng"
