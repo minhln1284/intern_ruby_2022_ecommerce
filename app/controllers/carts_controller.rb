@@ -47,7 +47,7 @@ class CartsController < ApplicationController
 
   def check_quantily product
     @quantily = params[:quantily].to_i
-    @quantily <= product.quantity_in_stock
+    @quantily > 1 && @quantily <= product.quantity_in_stock
   end
 
   def add_cart product, quantily
