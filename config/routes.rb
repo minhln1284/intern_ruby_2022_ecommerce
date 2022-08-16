@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     root "static_pages#home"
     get "/about", to: "static_pages#about"
     get "/contact", to: "static_pages#contact"
-    get "/detail", to: "static_pages#detail"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
@@ -22,7 +21,11 @@ Rails.application.routes.draw do
     end
     resources :ratings
     resources :order_details
-    resources :categories, only: :show
+    resources :categories do
+      member do
+        get :filter
+      end
+    end
     resources :products do
       collection do
         get :result
