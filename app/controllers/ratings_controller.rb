@@ -9,6 +9,9 @@ class RatingsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find_by(id: params[:id])
+  end
   private
 
   def rating_params

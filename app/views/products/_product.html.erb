@@ -4,7 +4,7 @@
       <%= image_tag product.product_images.first&.image %>
       <div class="men-cart-pro">
         <div class="inner-men-cart-pro">
-          <%= link_to t("quick_view"), "#", class: "link-product-add-cart" %>
+          <%= link_to t("quick_view"), product_path(product.id) , class: "link-product-add-cart" %>
         </div>
       </div>
     </div>
@@ -39,8 +39,7 @@
             />
             <% end %>
           </fieldset>
-          <% end %>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

@@ -58,6 +58,8 @@ vi:
     delete_fail: "Xoá thất bại"
     confirm_msg_1: "Bạn chắc chắn muốn xóa đơn hàng ?"
     confirm_msg_2: "Bạn chắc chắn muốn hủy đơn hàng ?"
+    update_success: "Cập nhật thành công"
+    confirm_msg: "Bạn chắc chắn muốn thao tác ?"
     order_id: "Mã đơn hàng"
     amount: "Tổng cộng"
     status: "Trạng thái"
@@ -66,6 +68,13 @@ vi:
     change_fail: "Thay đổi thất bại"
     order_details_msg: "Danh sách sản phẩm của #Order"
     order_not_found: "Không tìm thấy đơn hàng !"
+    select: "Lựa chọn"
+    all: "Tất cả"
+    newest: "Mới nhất"
+    price_increase: "Giá tăng dần"
+    price_decrease: "Giá giảm dần"
+    filter: "Lọc"
+    description: "Mô tả"
   admin:
     static_pages:
       settings: "Cài đặt"

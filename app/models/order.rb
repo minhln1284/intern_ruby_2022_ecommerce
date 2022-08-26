@@ -22,6 +22,7 @@ class Order < ApplicationRecord
                     .order("count_all DESC").limit(1).count.first.first
   end)
 
+  scope :order_by_price, ->(criteria){order(price: criteria)}
   scope :this_month, (lambda do
     where(created_at:
       DateTime.now.beginning_of_month..DateTime.now.end_of_month)

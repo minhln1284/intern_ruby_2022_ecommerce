@@ -19,25 +19,50 @@
     <div class="col-md-8 single-right-left simpleCart_shelfItem">
       <div class="mb-6">
         <h3><%= @product.name %></h3>
-        <p><%= number_to_currency(@product.price, negative_format: "(%u%n)") %></p>   
+        <h5><%= t "static_pages.description" %> : <%= @product.description %></h5>
+        <p><%= number_to_currency(@product.price, negative_format: "(%u%n)") %></p>  
+        <div
+      class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2"
+    >
+        <%= form_with url: carts_path(id: @product.id ), method: :post do |f| %>
+          <fieldset>
+            <% if logged_in? %>
+              <%= f.hidden_field :quantily, value: 1, max: 10, min: Settings.carts.min_quantily %>
+              <input
+                type="submit"
+                name="submit"
+                value="Add to cart"
+                class="button"/>
+            <% else %>
+              <input
+                type="button"
+                value="Add to cart"
+                class="button"
+                data-toggle="modal"
+                data-target="#myModal"
+            />
+            <% end %>
+          </fieldset>
+        <% end %>
+        </div> 
         <%= render "ratings/form_rating" %>  
       </div>
       <div class="clearfix"></div>
-      <div class="mt-6">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col"><%= t "static_pages.name" %></th>
-              <th scope="col"><%= t "static_pages.comment" %></th>
-              <th scope="col"><%= t "static_pages.rating" %></th>
-            </tr>
-          </thead>
-        <%= render @ratings.includes(:user) %>
-        </table>
-       <% if @ratings.present? %>
-        <%== pagy_bootstrap_nav(@pagy) %>
-       <% end %>
-      </div>
+      <% if @ratings.present? %>
+        <div class="mt-6">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col"><%= t "static_pages.name" %></th>
+                <th scope="col"><%= t "static_pages.comment" %></th>
+                <th scope="col"><%= t "static_pages.rating" %></th>
+              </tr>
+            </thead>
+          <%= render @ratings.includes(:user) %>
+          </table>
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

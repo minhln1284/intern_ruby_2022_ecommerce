@@ -58,6 +58,8 @@ en:
     delete_fail: "Delete failed!"
     confirm_msg_1: "Delete ?"
     confirm_msg_2: "Update ?"
+    update_success: "Update success"
+    confirm_msg: "Are you sure ?"
     order_id: "Order id"
     amount: "Amount"
     status: "Status"
@@ -65,6 +67,12 @@ en:
     change_success: "Change Success"
     change_fail: "Chang Failed"
     order_not_found: "Order not found"
+    all: "All"
+    newest: "Newest"
+    price_increase: "Price Increase"
+    price_decrease: "Price Decrease"
+    filter: "Filter"
+    description: "Description"
   admin:
     static_pages:
       settings: "Settings"

@@ -15,6 +15,7 @@ class Product < ApplicationRecord
                      where("name LIKE (?)", "%#{name}%") if name.present?
                    end)
   scope :order_by_price, ->(criteria){order(price: criteria)}
+  scope :find_category_id, ->(param){where category_id: param}
   scope :order_by_created_at, ->(param){order(created_at: param)}
   scope :newest, ->{order created_at: :desc}
   scope :by_ids, ->(ids){where id: ids}
