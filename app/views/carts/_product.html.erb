@@ -11,7 +11,7 @@
   <div class="main-product-number">
     <%= form_with url: cart_path(id: product.id), method: :put, remote: true do |f| %>
       <%= f.number_field :quantily, value: current_cart["#{product.id}"],
-        max: product.quantity_in_stock, min: "0", class: "form-control form-control-sm ", id: "form1" %>
+        max: product.quantity_in_stock, min: "1", class: "form-control form-control-sm ", id: "form1" %>
       <div class="subtotal"><%= number_to_currency total_price_product(product.id), negative_format: "(%u%n)" %></div>
       <div class="remove">
         <%= f.button type: :submit do %>

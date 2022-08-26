@@ -189,6 +189,21 @@ en:
       users_success: "Users success"
       users_unsuccess: "users_unsuccess"
       mail_notice: "Please check your email to complete the registration"
+    edit:
+      profile_setting: "Profile Settings"
+      name: "Name"
+      phone: "Mobile Number"
+      email: "Email"
+      address: "Address"
+      save: "Save Profile"
+      password: "Password"
+      confirm_password: "Confirm Password"
+      the_form: "The form contains: "
+      error: "error"
+      listorder: "List ordered"
+    update:
+      edit_fail: "Edit failse"
+      edit_success: "Edit success"
     form_signup:
       sign_up: "Sign Up"
       name: "Name"

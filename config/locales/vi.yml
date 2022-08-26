@@ -189,6 +189,24 @@ vi:
       users_success: "Đăng ký thành công"
       users_unsuccess: "Đăng ký không thành công"
       mail_notice: "Hãy kiểm tra mail để  hoàn tất đăng ký"
+    edit:
+      profile_setting: "Thay đổi thông tin"
+      name: "Tên"
+      phone: "Số điện thoại"
+      email: "Email"
+      address: "Địa chỉ"
+      save: "Lưu chỉnh sửa"
+      password: "Mật khẩu"
+      confirm_password: "Nhập lại mật khẩu"
+      the_form: "Bạn có: "
+      error: "lỗi"
+      listorder: "Danh sách đơn đã đặt"
+    update:
+      edit_fail: "Thay đổi thông tin thất bại"
+      edit_success: "Thay đổi thông tin thành công"
+    before_action:
+      not_correct: "Người dùng không đúng"
+      not_found: " Không tìm thấy người dùng"
     form_signup:
       sign_up: "Đăng ký"
       name: "Tên"

@@ -9,10 +9,12 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = Settings.user.valid_email_regex
   USER_ATTRIBUTES = %i(name email phone address password
                        password_confirmation).freeze
-
+  USER_UPDATE = %i(name phone address password
+                  password_confirmation).freeze
   validates :name, presence: true, length: {minimum: Settings.user.name_min}
 
-  validates :email, presence: true, length: {in: Settings.user.email_length},
+  validates :email, presence: true, uniqueness: true, on: :create,
+            length: {in: Settings.user.email_length},
             format: {with: VALID_EMAIL_REGEX}
 
   validates :phone, presence: true, length: {in: Settings.user.phone_length}
@@ -21,7 +23,8 @@ class User < ApplicationRecord
               length: {minimum: Settings.user.adress_min}
 
   validates :password, presence: true,
-               length: {minimum: Settings.user.pass_min}, allow_nil: true
+            length: {minimum: Settings.user.pass_min}, if: :password,
+            allow_nil: true
 
   scope :newest, ->{order created_at: :desc}
 

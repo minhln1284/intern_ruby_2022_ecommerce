@@ -95,9 +95,12 @@ label {
 .body-main-product {
   display: inline-block;
 }
-tr > th,td {
+
+tr>th,
+td {
   text-align: center;
 }
+
 .detail-order :hover {
   color: red;
   background-color: white;
@@ -121,9 +124,11 @@ tr > th,td {
   display: inline-block;
 }
 
-tr > th,td {
+tr>th,
+td {
   text-align: center;
 }
+
 .detail-order :hover {
   color: red;
   background-color: white;
@@ -146,22 +151,23 @@ order-price {
   margin-left: 17rem;
 }
 
-#submit-order{
+#submit-order {
   float: right;
   margin: 1.5rem 0;
 }
 
-.total{
+.total {
   margin: 2rem 0;
   font-size: 2rem;
   display: flex;
 }
 
-.table-cart{
-  td{
+.table-cart {
+  td {
     padding: 0 1.5rem 7px;
   }
-  th{
+
+  th {
     padding: 0 1.5rem 7px;
   }
 }
@@ -170,6 +176,56 @@ order-price {
   margin-left: auto;
   margin-top: -0.5rem;
 }
-.order-price{
+
+.order-price {
   margin-left: 20rem;
+
+}
+
+.text-right-profile {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #BA68C8
+}
+
+.profile-button {
+  background: rgb(99, 39, 120);
+  box-shadow: none;
+  border: none;
+  margin: 2rem;
+}
+
+.profile-button:hover {
+  background: #682773
+}
+
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none
+}
+
+.profile-button:active {
+  background: #682773;
+  box-shadow: none
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer
+}
+
+.labels {
+  font-size: 11px
+}
+
+.add-experience:hover {
+  background: #BA68C8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #BA68C8
 }

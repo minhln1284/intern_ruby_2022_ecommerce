@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   before_action :find_by_email, only: %i(create)
 
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
     if @user&.authenticate params[:session][:password]

@@ -1,0 +1,47 @@
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"></div>
+    </div>
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right-profile"><%= t ".profile_setting" %></h4>
+        </div>
+        <div class="row mt-2">
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                <%= t ".the_form" %> <%= pluralize(@user.errors.count, (t".error")) %>.
+              </div>
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= form_for @user do |f| %>
+            <%= f.label t ".name" %>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.label t ".email" %>
+            <%= f.email_field :email, class: "form-control", disabled: true %>
+            <%= f.label t ".phone" %>
+            <%= f.text_field :phone, class: "form-control" %>
+            <%= f.label t ".address" %>
+            <%= f.text_field :address, class: "form-control" %>
+            <%= f.label t ".password" %>
+            <%= f.password_field :password, class: "form-control" %>
+            <%= f.label :password_confirmation, t(".confirm_password") %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+            <%= f.submit t(".save"), class: "mt-5 text-center btn btn-primary profile-button" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to orders_path do %>
+  <button id="order" type="button" class="btn btn-dark btn-block btn-lg">
+    <%= t ".listorder" %> </button>
+<% end %>

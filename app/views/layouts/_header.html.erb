@@ -4,7 +4,7 @@
       <ul>
         <li>
           <i class="fa fa-user" aria-hidden="true"></i>
-          <%= current_user.name %>
+          <%= link_to current_user.name, edit_user_path(current_user) %>
         </li>
         <li><i class="fa fa-phone" aria-hidden="true"></i> <%= current_user.phone %></li>
         <li>
@@ -323,7 +323,7 @@
       <div class="modal-body modal-body-sub_agile">
         <div class="col-md-8 modal_body_left modal_body_left1">
           <h3 class="agileinfo_sign"> <%= t ".sign_up" %><span><%= t ".now" %></span></h3>
-          <%= render "users/form_signup", user: User.new %>
+            <%= render "users/form_signup", user: User.new %>
           <ul
             class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
             <li>

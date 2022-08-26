@@ -62,7 +62,6 @@ class OrdersController < ApplicationController
     ActiveRecord::Base.transaction do
       @order.save!
       create_order_detail
-
       clear_carts
       redirect_to root_path
       flash[:success] = t ".success_checkout"
