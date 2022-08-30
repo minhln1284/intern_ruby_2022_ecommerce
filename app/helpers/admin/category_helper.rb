@@ -9,13 +9,4 @@ module Admin::CategoryHelper
     options.delete [category.name.to_s, category.id]
     options.unshift ["None", nil]
   end
-
-  def parent_category categories
-    output = []
-    categories.each do |cate|
-      input = [cate.name, cate.id.to_s]
-      output.append input
-    end
-    output
-  end
 end
