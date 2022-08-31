@@ -26,6 +26,8 @@ gem "sass-rails", ">= 6"
 gem "simple_form"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
+gem "simplecov-rcov"
+gem "simplecov"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -44,6 +46,8 @@ group :test do
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver", ">= 4.0.0.rc1"
   gem "webdrivers"
+  gem "shoulda-matchers", "~> 5.0"
+  gem "factory_bot_rails"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
