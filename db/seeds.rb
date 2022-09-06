@@ -28,14 +28,15 @@ woman = Category.create!(name: "Woman")
 end
 
 categories = Category.all
+quantity_in_stock = 50
+count = 1
 categories.each do |category|
-  5.times do
-    sleep(0.5)
-    name = Faker::Nation.language
-    des = Faker::Lorem.sentence(word_count: 5)
-    product = category.products.create!(name: name, price: 50, quantity_in_stock: 5, description: des)
+  rand(1..10).times do
+    name = Faker::Nation.language + "-" + count.to_s
+    product = category.products.create!(name: name, price: 50, quantity_in_stock: quantity_in_stock)
     product_image = product.product_images.create!
     product_image.image.attach(io: File.open("app/assets/images/ProductImage/product#{rand(1..5)}.jpg"), filename: "product#{rand(1..35)}.jpg")
+  count += 1
   end
 end
 
@@ -44,7 +45,6 @@ users = User.all
 rand(1..5).times do
   status = rand(0..4)
   users.each { |user| user.orders.create!(status: status)}
-  sleep(0.5)
 end
 
 users.each do |user|

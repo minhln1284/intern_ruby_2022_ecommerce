@@ -11,6 +11,8 @@ class Product < ApplicationRecord
 
   validates :name, :price, :quantity_in_stock, presence: true
 
+  validates :name, uniqueness: true
+
   scope :by_name, (lambda do |name|
                      where("name LIKE (?)", "%#{name}%") if name.present?
                    end)
