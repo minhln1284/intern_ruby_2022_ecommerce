@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :logged_in_user, only: %i(index create show)
+  before_action :authenticate_user!, only: %i(index create show)
   before_action :current_cart
   before_action :load_product
 
