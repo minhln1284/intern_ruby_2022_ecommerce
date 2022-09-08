@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :phone, presence: true, length: {in: Settings.user.phone_length}
 
   validates :address, presence: true,
-               length: {minimum: Settings.user.adress_min}
+            length: {minimum: Settings.user.adress_min}
 
   scope :newest, ->{order created_at: :desc}
 
