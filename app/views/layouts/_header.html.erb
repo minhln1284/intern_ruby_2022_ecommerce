@@ -1,10 +1,10 @@
 <div class="header" id="home">
   <div class="container">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <ul>
         <li>
           <i class="fa fa-user" aria-hidden="true"></i>
-          <%= link_to current_user.name, edit_user_path(current_user) %>
+          <%= link_to current_user.name, edit_user_registration_path(current_user) %>
         </li>
         <li><i class="fa fa-phone" aria-hidden="true"></i> <%= current_user.phone %></li>
         <li>
@@ -12,22 +12,16 @@
           <a href="#"><%= current_user.email %></a>
         </li>
         <li><i class="fa fa-sign-out" aria-hidden="true"></i>
-          <%= link_to t(".log_out"), logout_path,  method: :delete %>
+          <%= link_to t(".log_out"), destroy_user_session_path,  method: :delete %>
         </li>
       </ul>
     <% else %>
       <ul>
         <li>
-          <a href="#" data-toggle="modal" data-target="#myModal">
-            <i class="fa fa-sign-in" aria-hidden="true"></i>
-            <%= t "static_pages.sign_in" %>
-          </a>
+          <%= link_to t("static_pages.sign_in"), new_user_session_path %>
         </li>
         <li>
-          <a href="#" data-toggle="modal" data-target="#myModal2">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-            <%= t "static_pages.sign_up" %>
-          </a>
+          <%= link_to t("static_pages.sign_up"), new_user_registration_path %>
         </li>
       </ul>
     <% end %>
@@ -237,142 +231,3 @@
     <div class="clearfix"></div>
   </div>
 </div>
-<!-- Modal1 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body modal-body-sub_agile">
-        <div class="col-md-8 modal_body_left modal_body_left1">
-          <h3 class="agileinfo_sign">
-            <%= t "static_pages.sign_in" %>
-          </h3>
-          <%= render "sessions/new" %>
-          <p><%= link_to t(".forgot_password"), new_password_reset_path %></p>
-          <ul
-            class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-            <li>
-              <a href="#" class="facebook">
-                <div class="front">
-                  <i class="fab fa-facebook" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-facebook" aria-hidden="true"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="twitter">
-                <div class="front">
-                  <i class="fab fa-twitter" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-twitter" aria-hidden="true"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="instagram">
-                <div class="front">
-                  <i class="fab fa-instagram" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-instagram" aria-hidden="true"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="pinterest">
-                <div class="front">
-                  <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-linkedin" aria-hidden="true"></i></div
-              ></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-          <p>
-            <a href="#" data-toggle="modal" data-target="#myModal2">
-              <%= t "static_pages.dont_have_acount" %>
-            </a>
-          </p>
-        </div>
-        <div class="col-md-4 modal_body_right modal_body_right1">
-          <%= image_tag "/assets/log_pic.jpg" %>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-    <!-- //Modal content-->
-  </div>
-</div>
-<!-- //Modal1 -->
-<!-- Modal2 -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">
-          &times;
-        </button>
-      </div>
-      <div class="modal-body modal-body-sub_agile">
-        <div class="col-md-8 modal_body_left modal_body_left1">
-          <h3 class="agileinfo_sign"> <%= t ".sign_up" %><span><%= t ".now" %></span></h3>
-            <%= render "users/form_signup", user: User.new %>
-          <ul
-            class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-            <li>
-              <a href="#" class="facebook">
-                <div class="front">
-                  <i class="fab fa-facebook" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-facebook" aria-hidden="true"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="twitter">
-                <div class="front">
-                  <i class="fab fa-twitter" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-twitter" aria-hidden="true"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="instagram">
-                <div class="front">
-                  <i class="fab fa-instagram" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-instagram" aria-hidden="true"></i></div
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="pinterest">
-                <div class="front">
-                  <i class="fab fa-linkedin" aria-hidden="true"></i>
-                </div>
-                <div class="back">
-                  <i class="fab fa-linkedin" aria-hidden="true"></i></div
-              ></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-          <p><%= t ".content_sign_up" %></p>
-        </div>
-        <div class="col-md-4 modal_body_right modal_body_right1">
-          <%= image_tag "/assets/log_pic.jpg" %>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-    <!-- //Modal content-->
-  </div>
-</div>
-<!-- //Modal2 -->

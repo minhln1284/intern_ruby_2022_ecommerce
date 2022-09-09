@@ -10,7 +10,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
     FactoryBot.create :order, user: admin
   }
 
-  before {log_in admin}
+  before {sign_in admin}
 
   describe "GET admin/orders" do
     it "render index page" do

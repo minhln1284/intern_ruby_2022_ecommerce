@@ -1,16 +1,5 @@
 require 'faker'
 
-5.times do |n|
-  name = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "foobar"
-  password_confirmation = "foobar"
-  phone = Faker::PhoneNumber.cell_phone
-  address = Faker::Address.street_address
-  User.create!(name: name, phone: phone, address: address,
-    password: password, password_confirmation: password_confirmation, email: email)
-end
-
 men = Category.create!(name: "Men")
 woman = Category.create!(name: "Woman")
 3.times do
@@ -38,41 +27,4 @@ categories.each do |category|
     product_image.image.attach(io: File.open("app/assets/images/ProductImage/product#{rand(1..5)}.jpg"), filename: "product#{rand(1..35)}.jpg")
     n += 1
   end
-end
-
-
-users = User.all
-rand(1..5).times do
-  status = rand(0..4)
-  users.each { |user| user.orders.create!(status: status)}
-end
-
-users.each do |user|
-  5.times do
-    product_id = rand(1..30)
-    comment = Faker::Lorem.sentence(word_count: 5)
-    star = rand(1..5)
-    user.ratings.create!(comment: comment, star: star, product_id: product_id)
-  end
-end
-
-first = User.first
-first.orders.create!(status: 2)
-
-orders = Order.all
-orders.each do |order|
-  amount = 0
-  rand(1..5).times do
-    product_id = rand(1..40)
-    quantity = rand(1..3)
-    od = order.order_details.new(product_id: product_id, quantity: quantity)
-    od.save!
-    price = od.product.price
-    od.update(price: price)
-  end
-  amount = 0
-  order.order_details.each do |od|
-    amount += od.price * od.quantity
-  end
-  order.update(amount: amount)
 end
