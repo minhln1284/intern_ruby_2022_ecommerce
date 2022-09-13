@@ -4,9 +4,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-if (typeof jQuery === 'undefined') {
-  throw new Error('Bootstrap\'s JavaScript requires jQuery')
-}
+// if (typeof jQuery === 'undefined') {
+//   throw new Error('Bootstrap\'s JavaScript requires jQuery')
+// }
 
 +function ($) {
   'use strict';

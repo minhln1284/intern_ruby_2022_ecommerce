@@ -7,7 +7,7 @@ class Rating < ApplicationRecord
                             minimum: Settings.review.rating_min}
 
   validates :comment, presence: true,
-            length: {maximum: Settings.message.message_max}
+                      length: {maximum: Settings.message.message_max}
 
   scope :newest, ->{order created_at: :desc}
 

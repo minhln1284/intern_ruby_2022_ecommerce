@@ -12,7 +12,7 @@ module SessionsHelper
   end
 
   def admin_logged_in?
-    current_user.present? and current_user.Admin?
+    current_user.present? && current_user.Admin?
   end
 
   def log_out

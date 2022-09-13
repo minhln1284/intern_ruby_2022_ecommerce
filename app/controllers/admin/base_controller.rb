@@ -2,7 +2,7 @@ class Admin::BaseController < ApplicationController
   include SessionsHelper
   layout "layouts/application_admin"
 
-  before_action :logged_in_admin
+  before_action :authenticate_user!
 
   private
   def logged_in_admin

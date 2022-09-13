@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   enum role: {Admin: 0, User: 1}
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -13,13 +13,7 @@ class User < ApplicationRecord
   USER_ATTRIBUTES = %i(name email phone address password
                        password_confirmation).freeze
   USER_UPDATE = %i(name phone address password
-                  password_confirmation).freeze
-  validates :name, presence: true, length: {minimum: Settings.user.name_min}
-
-  validates :phone, presence: true, length: {in: Settings.user.phone_length}
-
-  validates :address, presence: true,
-               length: {minimum: Settings.user.adress_min}
+                   password_confirmation).freeze
 
   scope :newest, ->{order created_at: :desc}
 
