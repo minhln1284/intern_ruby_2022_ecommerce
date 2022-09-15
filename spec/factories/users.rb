@@ -7,5 +7,6 @@ FactoryBot.define do
     password {"foobar"}
     password_confirmation {"foobar"}
     role { rand(0..1) }
+    confirmed_at {Time.now}
   end
 end

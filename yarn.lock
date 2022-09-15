@@ -1010,9 +1010,9 @@
   resolved "https://registry.npmjs.org/@rails/ujs/-/ujs-6.1.6.tgz"
   integrity sha512-2M4zlthYmOC6X/tcPcFd//sIL26a7JbCpGNl8uIrQf+pR1Z47uhYt9cOwVqJTJZPurdy2k+YY3Pn64pqruAPEA==
 
-"@rails/webpacker@^5.4.3":
+"@rails/webpacker@5.4.3":
   version "5.4.3"
-  resolved "https://registry.npmjs.org/@rails/webpacker/-/webpacker-5.4.3.tgz"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-5.4.3.tgz#cfe2d8faffe7db5001bad50a1534408b4f2efb2f"
   integrity sha512-tEM8tpUtfx6FxKwcuQ9+v6pzgqM5LeAdhT6IJ4Te3BPKFO1xrGrXugqeRuZ+gE8ASDZRTOK6yuQkapOpuX5JdA==
   dependencies:
     "@babel/core" "^7.15.0"
@@ -1995,9 +1995,10 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
-"cocoon@github:nathanvda/cocoon#c24ba53":
-  version "1.2.10"
-  resolved "https://codeload.github.com/nathanvda/cocoon/tar.gz/c24ba53b40e688e7d8b7212824139ec7f352a242"
+cocoon@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/cocoon/-/cocoon-0.1.1.tgz#e917ec7689b26cde3d567e815bda35a16172ed6e"
+  integrity sha512-QYpB+ntJDDfq7hRIpVPNwmptYA0jXHSAAIkapI+9XG4KBS0Qy9OKE304okOV+OLjnaR0cvwMY0FOgSfmvVtKPQ==
 
 collection-visit@^1.0.0:
   version "1.0.0"

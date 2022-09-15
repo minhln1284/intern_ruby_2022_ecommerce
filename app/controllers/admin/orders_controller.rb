@@ -3,8 +3,8 @@ class Admin::OrdersController < Admin::BaseController
 
   def index
     @orders = Order.this_month.without_deleted.oldest
-    @pagy, @orders2  = pagy(Order.this_month.oldest,
-                            items: Settings.order.item)
+    @pagy, @orders2 = pagy(Order.this_month.oldest,
+                           items: Settings.order.item)
   end
 
   def edit

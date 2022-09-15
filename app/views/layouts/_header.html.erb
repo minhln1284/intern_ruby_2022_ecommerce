@@ -12,7 +12,7 @@
           <a href="#"><%= current_user.email %></a>
         </li>
         <li><i class="fa fa-sign-out" aria-hidden="true"></i>
-          <%= link_to t(".log_out"), destroy_user_session_path,  method: :delete %>
+          <%= link_to t(".log_out"), destroy_user_session_path,  method: "delete" %>
         </li>
       </ul>
     <% else %>
@@ -215,7 +215,7 @@
     </div>
     <div class="top_nav_right">
       <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <%= link_to cart_path(id: 2) do %>
             <button class="w3view-cart" type="submit" name="submit" value="">
               <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>

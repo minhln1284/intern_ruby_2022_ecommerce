@@ -1,10 +1,9 @@
 require 'rails_helper'
-include SessionsHelper
 
 RSpec.describe Admin::OrdersController, type: :controller do
   let(:admin){
     FactoryBot.create(:user, role: "Admin")
-  }
+}
 
   let(:order){
     FactoryBot.create :order, user: admin

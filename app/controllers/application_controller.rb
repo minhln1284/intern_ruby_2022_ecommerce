@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
   before_action :current_cart, :load_product_in_cart
 
   private
+  def after_sign_in_path_for resource
+    if current_user.Admin?
+      (stored_location_for(resource) || admin_root_path)
+    else
+      (stored_location_for(resource) || root_path)
+    end
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
