@@ -4,11 +4,10 @@ require 'faker'
   name = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "foobar"
-  password_confirmation = "foobar"
   phone = Faker::PhoneNumber.cell_phone
   address = Faker::Address.street_address
   User.create!(name: name, phone: phone, address: address,
-    password: password, password_confirmation: password_confirmation, email: email)
+    password: password, email: email)
 end
 
 men = Category.create!(name: "Men")
@@ -32,7 +31,7 @@ quantity_in_stock = 50
 count = 1
 categories.each do |category|
   rand(1..10).times do
-    name = Faker::Nation.language + "-" + count.to_s
+    name = "Product" + "-" + count.to_s
     product = category.products.create!(name: name, price: 50, quantity_in_stock: quantity_in_stock)
     product_image = product.product_images.create!
     product_image.image.attach(io: File.open("app/assets/images/ProductImage/product#{rand(1..5)}.jpg"), filename: "product#{rand(1..35)}.jpg")
