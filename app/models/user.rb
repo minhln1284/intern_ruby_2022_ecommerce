@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :omniauthable, omniauth_providers: %i(google_oauth2)
 
   enum role: {Admin: 0, User: 1}
   attr_accessor :remember_token, :activation_token, :reset_token

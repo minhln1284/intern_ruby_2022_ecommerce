@@ -83,13 +83,13 @@ Rails.application.configure do
     Bullet.add_footer = true
   end
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "http://127.0.0.1:3000", port: 3000 }
   config.action_mailer.smtp_settings = {
-    user_name: ENV["mail_user_name"],
-    password: ENV["mail_user_password"],
-    address: ENV["mail_address"],
-    domain: ENV["mail_domain"],
-    port: ENV["mail_port"],
+    user_name: ENV["MAIL_USER_NAME"],
+    password: ENV["MAIL_USER_PASSWORD"],
+    address: ENV["MAIL_ADDRESS"],
+    domain: ENV["MAIL_DOMAIN"],
+    port: ENV["MAIL_PORT"],
     authentication: :cram_md5,
     enable_starttls_auto: true
   }
