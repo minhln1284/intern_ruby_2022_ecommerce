@@ -33,6 +33,10 @@ gem "simple_form"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.0"
 gem "whenever"
+gem "sidekiq"
+gem "redis-rails"
+gem "devise-async"
+gem "redis-namespace"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

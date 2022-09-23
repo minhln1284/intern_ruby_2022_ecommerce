@@ -288,7 +288,7 @@ Devise.setup do |config|
   # The following options are available, assuming the engine is mounted as:
   #
   #     mount MyEngine, at: '/my_engine'
-  #
+
   # The router that invoked `devise_for`, in the example above, would be:
   # config.router_name = :my_engine
   #

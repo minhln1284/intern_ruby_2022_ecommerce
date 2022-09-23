@@ -34,7 +34,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -93,4 +93,5 @@ Rails.application.configure do
     authentication: :cram_md5,
     enable_starttls_auto: true
   }
+  config.active_job.queue_adapter = :sidekiq
 end
