@@ -2,6 +2,8 @@ class Admin::ProductsController < Admin::BaseController
   before_action :find_product, only: %i(edit show update destroy)
   before_action :get_categories, only: %i(new edit show index)
 
+  load_and_authorize_resource
+
   def index
     @q = Product.ransack(params[:q])
     @pagy, @products = pagy(@q.result(distinct: true))

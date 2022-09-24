@@ -1,6 +1,8 @@
 class Admin::UsersController < Admin::BaseController
   before_action :find_user, only: %i(show)
 
+  load_and_authorize_resource
+
   def index
     @pagy, @users = pagy(User.newest, items: Settings.user.item)
     @best = User.best_user(Order.most_order).first

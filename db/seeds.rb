@@ -41,7 +41,7 @@ end
 
 
 users = User.all
-rand(1..5).times do
+rand(2..10).times do
   status = rand(0..4)
   users.each { |user| user.orders.create!(status: status)}
 end

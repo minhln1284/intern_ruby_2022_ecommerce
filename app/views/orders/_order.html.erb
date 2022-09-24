@@ -1,22 +1,24 @@
-<tbody>
-  <tr>
-    <th scope="row"><%= order.id %></th>
-    <td><%= order.amount %></td>
-    <td><%= style_status(order.status) %></td>
-    <td>
-      <%= link_to order_detail_path(order.id) do %>
-        <i class="fa-solid fa-eye"></i> 
-      <% end %>
-      <% if !order.Shipping? %>
-        <%= link_to order_path(order.id), method: :delete, data: { confirm: t("static_pages.confirm_msg_1") } do %>
-          <i class="fa-solid fa-trash"></i>
+<% if order.deleted_at.nil? %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= order.id %></th>
+      <td><%= order.amount %></td>
+      <td><%= style_status(order.status) %></td>
+      <td>
+        <%= link_to order_path(order.id) do %>
+          <i class="fa-solid fa-eye"></i>
         <% end %>
-      <% end %>
-      <% if order.Pending? %>
-        <%= link_to change_order_path(order.id), method: :get, data: { confirm: t("static_pages.confirm_msg_2") } do %>
-          <i class="fa fa-times" aria-hidden="true"></i>
+        <% if !order.Shipping? %>
+          <%= link_to order_path(order.id), method: :delete, data: { confirm: t("static_pages.confirm_msg_1") } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
         <% end %>
-      <% end %>
-    </td>
-  </tr> 
-</tbody>
+        <% if order.Pending? %>
+          <%= link_to change_order_path(order.id), method: :get, data: { confirm: t("static_pages.confirm_msg_2") } do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+<% end %>

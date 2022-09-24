@@ -3,6 +3,8 @@ class CartsController < ApplicationController
   before_action :current_cart
   before_action :load_product
 
+  skip_authorization_check
+
   def index; end
 
   def show; end
@@ -47,7 +49,7 @@ class CartsController < ApplicationController
 
   def check_quantily product
     @quantily = params[:quantily].to_i
-    @quantily > 1 && @quantily <= product.quantity_in_stock
+    @quantily >= 1 && @quantily <= product.quantity_in_stock
   end
 
   def add_cart product, quantily

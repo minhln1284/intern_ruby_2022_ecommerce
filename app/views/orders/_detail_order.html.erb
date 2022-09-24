@@ -1,4 +1,4 @@
-<% @ods.each do |od| %>
+<% @ods.includes([:product]).each do |od| %>
   <tbody>
     <tr>
       <td><%= od.product.name %></th>

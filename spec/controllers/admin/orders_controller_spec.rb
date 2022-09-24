@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::OrdersController, type: :controller do
   let(:admin){
-    FactoryBot.create(:user, role: "Admin")
+    FactoryBot.create(:user, role: "admin")
 }
 
   let(:order){

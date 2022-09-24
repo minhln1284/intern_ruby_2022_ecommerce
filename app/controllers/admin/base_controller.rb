@@ -3,6 +3,8 @@ class Admin::BaseController < ApplicationController
 
   before_action :authenticate_user!
 
+  check_authorization unless: :devise_controller?
+
   private
   def logged_in_admin
     return if admin_logged_in?
