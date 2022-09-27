@@ -4,12 +4,18 @@
       <ul>
         <li>
           <i class="fa fa-user" aria-hidden="true"></i>
-          <%= link_to current_user.name, edit_user_registration_path(current_user) %>
+          <%= link_to current_user.name, edit_user_registration_path %>
         </li>
         <li><i class="fa fa-phone" aria-hidden="true"></i> <%= current_user.phone %></li>
         <li>
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <a href="#"><%= current_user.email %></a>
+          <% if current_user.user? %>
+            <%= link_to current_user.email, orders_path %>
+          <% elsif current_user.admin? %>
+            <%= link_to current_user.email, admin_root_path %>
+          <% else %>
+            <%= link_to current_user.email, admin_orders_path %>
+          <% end %>
         </li>
         <li><i class="fa fa-sign-out" aria-hidden="true"></i>
           <%= link_to t(".log_out"), destroy_user_session_path,  method: "delete" %>
@@ -223,9 +229,11 @@
             </button>
           <% end %>
         <% else %>
-          <button class="w3view-cart" value="" data-toggle="modal" data-target="#myModal">
-            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-          </button>
+          <%= link_to new_user_session_path do %>
+            <button class="w3view-cart" type="submit" name="submit" value="">
+              <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            </button>
+          <% end %>
         <% end %>
       </div>
     </div>

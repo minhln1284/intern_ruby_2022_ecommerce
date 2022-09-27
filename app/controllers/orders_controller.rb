@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   before_action :current_cart, :load_product_in_cart
   before_action :check_product_quantity, only: %i(new create)
 
+  load_and_authorize_resource
+
   def index
     @pagy, @orders = pagy current_user.orders
   end
@@ -10,6 +12,11 @@ class OrdersController < ApplicationController
   def new
     @order = current_user.orders.build
     @product = Product.find_by id: params[:id]
+  end
+
+  def show
+    @order = Order.find_by(id: params[:id])
+    @ods = @order.order_details
   end
 
   def create

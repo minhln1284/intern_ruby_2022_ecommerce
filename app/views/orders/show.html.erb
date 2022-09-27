@@ -10,14 +10,15 @@
         <th scope="col"><%= t "static_pages.quantity" %></th>
       </tr>
     </thead>
-      <%= render partial: "detail_order" %>
+    <%= render partial: "detail_order" %>
     <tbody>
       <tr>
         <th scope="row"><%= t "static_pages.total" %></th>
-        <th><%= number_to_currency @order_total.amount, negative_format: "(%u%n)" %></td>
+        <th><%= number_to_currency @order.amount, negative_format: "(%u%n)" %></td>
       </tr>
     <tbody>
   </table>
+  <%= link_to t("admin.user.back"), orders_path, class: "btn btn-primary" %>
 </div>
 <% else %>
   <div class="mb-6">

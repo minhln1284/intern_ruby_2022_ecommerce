@@ -2,6 +2,8 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :find_category, only: %i(edit show update destroy)
   before_action :load_categories, only: %i(new)
 
+  load_and_authorize_resource
+
   def index
     @pagy, @categories = pagy(Category.newest,
                               items: Settings.category.item)

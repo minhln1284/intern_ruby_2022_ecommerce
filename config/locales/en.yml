@@ -1,4 +1,5 @@
 en:
+  unauthorized: "Not authorized to access"
   ransack:
     create_day: "Create day"
     from_date: "From date"

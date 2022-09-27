@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: %i(google_oauth2)
 
-  enum role: {Admin: 0, User: 1}
+  enum role: {admin: 0, manager: 1, user: 2}
   attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :ratings, dependent: :destroy

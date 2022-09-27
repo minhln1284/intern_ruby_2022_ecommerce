@@ -1,6 +1,8 @@
 class Admin::OrdersController < Admin::BaseController
   before_action :find_order, only: %i(edit update)
 
+  load_and_authorize_resource
+
   def index
     @search = Order.this_month.without_deleted.oldest.ransack(params[:q])
     @pagy, @orders = pagy @search.result

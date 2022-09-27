@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   scope "(:locale)", locale: /en|vi/ do
-    authenticate :user, ->(user) { user.Admin? } do
+    authenticate :user, ->(user) { user.admin? } do
       mount Sidekiq::Web => "/sidekiq"
     end
     root "static_pages#home"
@@ -20,11 +20,7 @@ Rails.application.routes.draw do
       get "search", to: "products#index"
       resources :static_pages
       resources :categories
-      resources :orders do
-        collection do
-          match "search" => "orders#search", via: [:get, :post], as: :search
-        end
-      end
+      resources :orders
       resources :products
       resources :users
       root "static_pages#index"
