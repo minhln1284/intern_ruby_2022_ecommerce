@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = current_user.orders.new order_params
     if @order.valid?
       create_transaction
@@ -51,6 +52,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
+
     params.require(:order).permit Order::ORDER_ATTRS
   end
 
@@ -66,6 +68,7 @@ class OrdersController < ApplicationController
   end
 
   def create_transaction
+  
     ActiveRecord::Base.transaction do
       @order.save!
       create_order_detail

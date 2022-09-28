@@ -1,15 +1,15 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Admin::OrdersController, type: :controller do
-  let(:admin){
+  let(:admin) {
     FactoryBot.create(:user, role: "admin")
-}
+  }
 
-  let(:order){
+  let(:order) {
     FactoryBot.create :order, user: admin
   }
 
-  before {sign_in admin}
+  before { sign_in admin }
 
   describe "GET admin/orders" do
     it "render index page" do
@@ -20,7 +20,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
 
   describe "GET edit" do
     context "Successfully" do
-      before{get :edit, params:{id: order.id}}
+      before { get :edit, params: { id: order.id } }
 
       it "render edit page successfully" do
         expect(assigns(:order_details)).to eq(order.order_details)
@@ -28,7 +28,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
     end
 
     context "Order's id nil" do
-      before{get :edit, params:{id: ""}}
+      before { get :edit, params: { id: "" } }
 
       it "Update failed" do
         expect(flash[:danger]).to eq I18n.t("flashes.alert_not_found")
@@ -39,12 +39,12 @@ RSpec.describe Admin::OrdersController, type: :controller do
   describe "PATCH admin/order" do
     context "when update success" do
       before do
-        patch :update, params:{
-          id: order.id,
-          order:{user_id: order.user_id,
-            amount: order.amount,
-            status: order.status}
-        }
+        patch :update, params: {
+                   id: order.id,
+                   order: { user_id: order.user_id,
+                            amount: order.amount,
+                            status: order.status },
+                 }
       end
 
       it "Update successfully" do
@@ -55,12 +55,12 @@ RSpec.describe Admin::OrdersController, type: :controller do
     context "when update failed" do
       describe "Order update failed" do
         before do
-          patch :update, params:{
-            id: order.id,
-            order:{user_id: -1,
-              amount: order.amount,
-              status: order.status}
-          }
+          patch :update, params: {
+                     id: order.id,
+                     order: { user_id: -1,
+                              amount: order.amount,
+                              status: order.status },
+                   }
         end
 
         it "Update failed" do
@@ -70,7 +70,7 @@ RSpec.describe Admin::OrdersController, type: :controller do
     end
 
     context "invalid order_id" do
-      before{patch :update, params:{id: 0}}
+      before { patch :update, params: { id: 0 } }
 
       it "Update failed" do
         expect(flash[:danger]).to eq I18n.t("flashes.alert_not_found")

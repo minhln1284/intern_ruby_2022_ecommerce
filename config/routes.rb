@@ -28,11 +28,7 @@ Rails.application.routes.draw do
     end
     resources :ratings
     resources :order_details
-    resources :categories do
-      member do
-        get :filter
-      end
-    end
+    resources :categories
     resources :products
     resources :carts
     resources :orders do

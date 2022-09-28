@@ -5,8 +5,6 @@ class CartsController < ApplicationController
 
   skip_authorization_check
 
-  def index; end
-
   def show; end
 
   def create
@@ -21,11 +19,10 @@ class CartsController < ApplicationController
   def update
     if @carts.key? params[:id]
       update_cart
-      store_location
     else
       flash[:danger] = t ".fail_update"
     end
-    redirect_to cart_path current_user.id
+    redirect_to cart_path(id: 2)
   end
 
   def destroy
@@ -69,6 +66,7 @@ class CartsController < ApplicationController
       user_id = session[:user_id]
       session["cart_#{user_id}"] = @carts
       flash[:success] = t ".success_update"
+      binding.pry
     else
       flash[:danger] = t ".danger_quantily"
     end
