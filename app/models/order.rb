@@ -15,6 +15,7 @@ class Order < ApplicationRecord
   before_save :update_branch
 
   scope :oldest, ->{order created_at: :asc}
+  scope :newest, ->{order created_at: :desc}
   scope :by_user, ->(uid){where user_id: uid}
 
   scope :most_order, (lambda do
@@ -28,8 +29,8 @@ class Order < ApplicationRecord
       DateTime.now.beginning_of_month..DateTime.now.end_of_month)
   end)
 
-  ransacker :created_at, type: :date do
-    Arel.sql("date(created_at)")
+  ransacker :updated_at, type: :date do
+    Arel.sql("date(updated_at)")
   end
 
   private

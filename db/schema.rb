@@ -49,14 +49,6 @@ ActiveRecord::Schema.define(version: 2022_09_16_165942) do
     t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
-  create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "message"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "order_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity"
     t.float "price"
@@ -114,7 +106,7 @@ ActiveRecord::Schema.define(version: 2022_09_16_165942) do
     t.string "email"
     t.string "phone"
     t.string "address"
-    t.integer "role"
+    t.integer "role", default: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
@@ -142,7 +134,6 @@ ActiveRecord::Schema.define(version: 2022_09_16_165942) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "categories"
-  add_foreign_key "messages", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "users"

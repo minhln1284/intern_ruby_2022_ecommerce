@@ -16,8 +16,8 @@
         <div class="dropdown">
           <button class="dropbtn"><%= t("static_pages.filter") %></button>
           <div class="dropdown-content">
-            <%= link_to t("admin.product.filter.oldest"), admin_products_path(q: {s: "created_at asc"}) %>
-            <%= link_to t("admin.product.filter.newest"), admin_products_path(q: {s: "created_at desc"}) %>
+            <%= link_to t("admin.product.filter.oldest"), admin_products_path(q: {s: "updated_at asc"}) %>
+            <%= link_to t("admin.product.filter.newest"), admin_products_path(q: {s: "updated_at desc"}) %>
             <%= link_to t("admin.product.filter.uncate"), admin_products_path(q: {"category_id_null" => "true"}) %>
           </div>
         </div>

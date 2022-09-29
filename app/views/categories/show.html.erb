@@ -6,10 +6,10 @@
           <div class="dropdown">
             <button class="dropbtn"><%= t("static_pages.filter") %></button>
             <div class="dropdown-content">
-              <%= link_to t("static_pages.all"), products_path(q: {s: "created_at asc"}) %>
-              <%= link_to t("static_pages.newest"), products_path(q: {s: "created_at desc"}) %>
-              <%= link_to t("static_pages.price_increase"), products_path(q: {"category_id_null" => "true"}) %>
-              <%= link_to t("static_pages.price_decrease"), products_path(q: {"category_id_null" => "true"}) %>
+              <%= sort_link(@q, :created_at, 'Newest', default_order: :asc) %>
+              <%= sort_link(@q, :created_at, 'Oldest', default_order: :desc) %>
+              <%= sort_link(@q, :price, 'Cheapest', default_order: :asc) %>
+              <%= sort_link(@q, :price, 'Most Expensive', default_order: :desc) %>
             </div>
           </div>
           <div class="clearfix"></div>

@@ -29,19 +29,22 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
     alias_action :index, :show, to: :read
-    alias_action :new, to: :create
+    # alias_action :new, to: :create
     alias_action :edit, :show, to: :update
 
-    can :read, ProductsController
-
-    can :manage, Order, user: user
+    return unless user.present?
 
     case user.role
+    when "user"
+      can :read, Product
+      can :manage, Order, user_id: user.id
     when "admin"
       can :manage, :all
     when "manager"
       can :manage, Order
       can %i(update read), Product
+      can %i(update read), Category
+      cannot :destroy, Category
     end
   end
 end

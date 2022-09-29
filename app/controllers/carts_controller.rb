@@ -66,7 +66,6 @@ class CartsController < ApplicationController
       user_id = session[:user_id]
       session["cart_#{user_id}"] = @carts
       flash[:success] = t ".success_update"
-      binding.pry
     else
       flash[:danger] = t ".danger_quantily"
     end

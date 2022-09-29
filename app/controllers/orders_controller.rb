@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
+  authorize_resource
+
   before_action :authenticate_user!, only: %i(new create)
   before_action :current_cart, :load_product_in_cart
   before_action :check_product_quantity, only: %i(new create)
 
-  load_and_authorize_resource
 
   def index
     @pagy, @orders = pagy current_user.orders
@@ -68,7 +69,7 @@ class OrdersController < ApplicationController
   end
 
   def create_transaction
-  
+
     ActiveRecord::Base.transaction do
       @order.save!
       create_order_detail

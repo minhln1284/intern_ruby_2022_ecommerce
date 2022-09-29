@@ -28,5 +28,5 @@ env :PATH, ENV['PATH']
 set :output, './log/cron.log'
 
 every 1.minute do
-  rake "monthly_summary"
+rake "monthly_summary"
 end
